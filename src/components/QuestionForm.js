@@ -32,7 +32,7 @@ function QuestionForm(props) {
             type="text"
             name="prompt"
             value={formData.prompt}
-            onChange={handleChange}
+            onChange={(e) => setPrompt(e.target.value)}
           />
         </label>
         <label>
@@ -46,12 +46,15 @@ function QuestionForm(props) {
         </label>
         <label>
           Answer 2:
+          {answers.map((answer, index) = (
           <input
+            key={index}
             type="text"
             name="answer2"
             value={formData.answer2}
-            onChange={handleChange}
+            onChange={(e) => handleAnswerChange(index, e.target.value)}
           />
+          ))}
         </label>
         <label>
           Answer 3:
